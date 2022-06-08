@@ -1,1 +1,18 @@
-<h1>Here is the post by it's id</h1>
+<main class="container">
+  <div class="border border-secondary p-3">
+    <div class="d-flex justify-content-between">
+      <h3> <%= @post.title %> by <%= @user.name %> </h3>
+      <p>comments: <%= @post.comments_counter || 0 %> , Likes: <%= @post.likes_counter || 0 %></p>
+    </div>
+      <div>
+        <%= @post.text %>
+      </div>
+  </div>
+  <div class="border border-secondary mt-3 p-3">
+  <% @post.comments.each do |comment| %>
+      <div>
+        <p><%= comment.user.name %>: <%= comment.text %></p>
+      </div>
+  <% end %>
+  </div>
+</main>
