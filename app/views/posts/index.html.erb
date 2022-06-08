@@ -1,1 +1,19 @@
-<h1>This the user posts</h1>
+<main class="container">
+  <%= render 'users/user' %>
+  <% @user.posts.each do |post| %>
+    <div class="border border-secondary mt-5 p-3">
+      <h3><%= link_to post.title, user_post_path(user_id: @user.id, id: post.id ) %></h3>
+      <p><%= post.brief_description %></p>
+      <p>comments: <%= post.comments_counter || 0 %> , Likes: <%=post.likes_counter || 0 %></p>
+    </div>
+    <% unless post.most_recent_comments.empty? %>
+    <div class="border border-secondary mt-5 p-3">
+      <% post.most_recent_comments.each do |comment| %>
+        <div>
+          <p><%= comment.user.name %>: <%= comment.text %></p>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  <% end %>
+</main>
