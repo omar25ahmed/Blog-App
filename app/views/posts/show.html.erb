@@ -7,6 +7,16 @@
       <div>
         <%= @post.text %>
       </div>
+      <div class="d-flex justify-content-between">
+        <%= form_with url: "#{@post.id}/comments", scope: :comment do |f| %>
+          <%= f.label :text, "Comment:" %><br/>
+          <%= f.text_area :text %><br/>
+          <%= f.submit "Submit" %>
+        <% end %>
+        <%= form_with url: "#{@post.id}/likes", scope: :like do |f| %>
+          <%= f.submit "Like" %>
+        <% end %>
+      </div>
   </div>
   <div class="border border-secondary mt-3 p-3">
   <% @post.comments.each do |comment| %>
