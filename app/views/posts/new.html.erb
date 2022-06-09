@@ -1,0 +1,9 @@
+<h1>Create a post</h1>
+
+<%= form_with url: "/users/#{@user.id}/posts", scope: :post do |f| %>
+  <%= f.label :title, "Title:" %> <br/>
+  <%= f.text_field :title %> <br/>
+  <%= f.label :text, "Post:" %><br/>
+  <%= f.text_area :text %><br/>
+  <%= f.submit "Submit" %>
+<% end %>
