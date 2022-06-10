@@ -12,13 +12,14 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('index')
     end
     it 'check text' do
-      expect(response.body).to include('Users')
+      expect(response.body).to include('number of posts:')
     end
   end
 
   describe 'GET /users' do
     before(:each) do
-      get '/users/:id'
+      user = User.first
+      get "/users/#{user.id}"
     end
     it 'works! (now write some real specs)' do
       expect(response).to have_http_status(200)
@@ -27,7 +28,7 @@ RSpec.describe 'Users', type: :request do
       expect(response).to render_template('show')
     end
     it 'check text' do
-      expect(response.body).to include('The User Profile Appear here')
+      expect(response.body).to include('Add new Post')
     end
   end
 end
