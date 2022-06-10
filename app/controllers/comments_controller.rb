@@ -4,12 +4,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      flash[:success] = "Comment Added!"
-      redirect_to user_post_path(current_user, @post)
+      flash[:success] = 'Comment Added!'
     else
       flash[:error] = "Comment isn't added!"
-      redirect_to user_post_path(current_user, @post)
     end
+    redirect_to user_post_path(current_user, @post)
   end
 
   private

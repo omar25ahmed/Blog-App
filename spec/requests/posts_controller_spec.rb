@@ -31,7 +31,7 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('show')
     end
     it 'check text' do
-      expect(response.body).to include("comments:")
+      expect(response.body).to include('comments:')
     end
   end
 end

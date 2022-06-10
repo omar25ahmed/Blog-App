@@ -16,7 +16,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'should not be invalid' do
-    subject.title = "#{'a' * 300}"
+    subject.title = ('a' * 300).to_s
     expect(subject).to_not be_valid
   end
 
@@ -41,7 +41,7 @@ RSpec.describe Post, type: :model do
   end
 
   it 'should reduce text length' do
-    subject.text = "#{'a' * 300}"
+    subject.text = ('a' * 300).to_s
     expect(subject.brief_description.length).to eq(50)
   end
 end
