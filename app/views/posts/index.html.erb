@@ -8,7 +8,7 @@
     </div>
     <% unless post.most_recent_comments.empty? %>
     <div class="border border-secondary mt-5 p-3">
-      <% post.most_recent_comments.each do |comment| %>
+      <% post.most_recent_comments.includes([:user]).each do |comment| %>
         <div>
           <p><%= comment.user.name %>: <%= comment.text %></p>
         </div>
