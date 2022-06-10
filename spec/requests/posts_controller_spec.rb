@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   describe 'GET /posts' do
     before(:each) do
-      get '/users/:user_id/posts'
+      user = User.first
+      get "/users/#{user.id}/posts"
     end
     it 'works! (now write some real specs)' do
       expect(response).to have_http_status(200)
@@ -12,13 +13,16 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('index')
     end
     it 'check text' do
-      expect(response.body).to include('This the user posts')
+      expect(response.body).to include('number of posts:')
     end
   end
 
   describe 'GET /users' do
     before(:each) do
-      get '/users/:user_id/posts/:id'
+      user = User.first
+      post = user.posts.create(title: 'Post Title', text: 'This is the post text')
+      get "/users/#{user.id}/posts/#{post.id}"
+      puts post
     end
     it 'works! (now write some real specs)' do
       expect(response).to have_http_status(200)
@@ -27,7 +31,7 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template('show')
     end
     it 'check text' do
-      expect(response.body).to include("Here is the post by it's id")
+      expect(response.body).to include("comments:")
     end
   end
 end
