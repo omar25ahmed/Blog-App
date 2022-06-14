@@ -23,7 +23,12 @@ default: &default
 
 development:
   <<: *default
+  adapter: postgresql
   database: Blog_App_development
+  host: localhost
+  username: postgres
+  password: <%= ENV['db_pss'] %>
+  port: 5432
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +63,9 @@ development:
 test:
   <<: *default
   database: Blog_App_test
+  host: localhost
+  username: postgres
+  password: <%= ENV['db_pss'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -82,5 +90,5 @@ test:
 production:
   <<: *default
   database: Blog_App_production
-  username: Blog_App
-  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+  username: postgres
+  password: <%= ENV['db_pss'] %>
