@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input:not([type="checkbox"]) {
+  width: 80vw;
+}
