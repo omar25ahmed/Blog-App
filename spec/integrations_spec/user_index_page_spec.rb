@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/integrations_spec/integretion_mock.rb'
+require './spec/integrations_spec/integretion_mock'
 
 RSpec.describe 'login page', type: :system do
   include Mocks

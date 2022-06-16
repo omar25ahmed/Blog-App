@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/integrations_spec/integretion_mock.rb'
+require './spec/integrations_spec/integretion_mock'
 
 RSpec.describe 'login page', type: :system do
   include Mocks
@@ -48,7 +48,7 @@ RSpec.describe 'login page', type: :system do
       click_button 'Log in'
       click_link 'Mateo'
       click_link 'See all posts'
-      expect(page).to have_content "number of posts: 10"
+      expect(page).to have_content 'number of posts: 10'
     end
 
     it 'it should show posts title' do

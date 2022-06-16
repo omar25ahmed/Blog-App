@@ -1,5 +1,5 @@
 require 'rails_helper'
-require './spec/integrations_spec/integretion_mock.rb'
+require './spec/integrations_spec/integretion_mock'
 
 RSpec.describe 'login page', type: :system do
   include Mocks
@@ -43,7 +43,7 @@ RSpec.describe 'login page', type: :system do
       end
       click_button 'Log in'
       click_link 'Mateo'
-      expect(page).to have_content "number of posts: 10"
+      expect(page).to have_content 'number of posts: 10'
     end
 
     it 'it should show user bio' do
@@ -55,7 +55,7 @@ RSpec.describe 'login page', type: :system do
       end
       click_button 'Log in'
       click_link 'Mateo'
-      expect(page).to have_content "Bio:"
+      expect(page).to have_content 'Bio:'
     end
 
     it 'it should show user bio' do
@@ -67,7 +67,7 @@ RSpec.describe 'login page', type: :system do
       end
       click_button 'Log in'
       click_link 'Mateo'
-      expect(page).to have_content "See all posts"
+      expect(page).to have_content 'See all posts'
     end
 
     it 'it should redirects me to that post\'s show page' do
@@ -79,8 +79,8 @@ RSpec.describe 'login page', type: :system do
       end
       click_button 'Log in'
       click_link 'Mateo'
-      click_link "See all posts"
-      expect(page).to have_content "Add new Post"
+      click_link 'See all posts'
+      expect(page).to have_content 'Add new Post'
     end
   end
 end

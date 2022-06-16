@@ -18,7 +18,7 @@ RSpec.describe 'login page', type: :system do
 
     it 'testing the validation of login page ' do
       visit new_user_session_path
-      click_button('Log in');
+      click_button('Log in')
       expect(page).to have_content('Invalid Email or password.')
     end
 
@@ -28,7 +28,7 @@ RSpec.describe 'login page', type: :system do
         fill_in 'user_email', with: 'mateovills324agomez1995@gmail.com'
         fill_in 'user_password', with: '123sfd456'
       end
-      click_button('Log in');
+      click_button('Log in')
       expect(page).to have_content('Invalid Email or password.')
     end
 
@@ -38,7 +38,7 @@ RSpec.describe 'login page', type: :system do
         fill_in 'user_email', with: 'ahmed.raph29@gmail.com'
         fill_in 'user_password', with: '123456'
       end
-      click_button('Log in');
+      click_button('Log in')
       expect(page).to have_content('Logged in as ahmed.raph29@gmail.com')
     end
   end
