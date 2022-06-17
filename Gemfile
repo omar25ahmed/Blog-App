@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
+ruby '3.0.3'
+
+gem 'ffi'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3'
@@ -58,6 +60,12 @@ group :development, :test do
   end
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rails-controller-testing'
+  # Capybara, the library that allows us to interact with the browser using Ruby
+  gem 'capybara'
+
+  # The following gems aids with the nuts and bolts
+  # of interacting with the browser.
+  gem 'webdrivers'
 end
 
 group :development do
@@ -73,7 +81,5 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
 end
