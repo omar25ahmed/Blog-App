@@ -15,6 +15,7 @@
         <%= form_with url: "#{@post.id}/comments", scope: :comment do |f| %>
           <%= f.label :text, "Comment:" %><br/>
           <%= f.text_area :text %><br/>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <%= f.submit "Submit" %>
         <% end %>
         <%= form_with url: "#{@post.id}/likes", scope: :like do |f| %>
